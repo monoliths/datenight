@@ -45,3 +45,6 @@ gem 'twitter-bootstrap-rails', :git => 'git://github.com/seyhunak/twitter-bootst
 
 # Nice looking icons the app uses
 gem 'font-awesome-rails'
+
+# Rails forms simplified
+gem 'simple_form'
