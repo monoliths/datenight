@@ -51,3 +51,6 @@ gem 'simple_form'
 
 # user authentication
 gem 'devise'
+
+# Use ruby to display gravatars
+gem 'gravatarify', '~> 3.0.0'
