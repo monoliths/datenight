@@ -54,3 +54,6 @@ gem 'devise'
 
 # Use ruby to display gravatars
 gem 'gravatarify', '~> 3.0.0'
+
+# normalize phone numbers and validate them easily
+gem 'phony_rails'
