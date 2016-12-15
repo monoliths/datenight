@@ -57,3 +57,6 @@ gem 'gravatarify', '~> 3.0.0'
 
 # normalize phone numbers and validate them easily
 gem 'phony_rails'
+
+# convert street addresses to coords for google maps APIs
+gem 'geocoder'

@@ -24,11 +24,28 @@
   <strong>Website:</strong>
   <%= @place.website %>
 </p>
-
 <p>
-  <strong>User:</strong>
-  <%= @place.user_id %>
+  <strong>Coordinates:</strong>
+  <%= @place.latitude %>, <%= @place.longitude %>
 </p>
 
+<div id="map-canvas" style="width:230px; height:230px">
+</div>
 <%= link_to 'Edit', edit_place_path(@place) %> |
 <%= link_to 'Back', places_path %>
+
+<script type="text/javascript">
+  var map;
+  var myCenter = { lat: <%= @place.latitude %>, lng: <%= @place.longitude %> };
+  function initMap() {
+    map = new google.maps.Map(document.getElementById('map-canvas'), {
+      center: myCenter,
+      zoom: 8
+    });
+    var marker = new google.maps.Marker({
+      position: myCenter,
+      map: map
+    });
+  }
+
+</script>

@@ -6,6 +6,7 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBX4Am8c5rpxFdRN6Y5gMNcxWIo36R9sEc&callback=initMap"></script>
   </head>
 
   <body>
@@ -21,6 +22,6 @@
     <div class="container">
       <%= yield %>
     </div>
-    
+
   </body>
 </html>

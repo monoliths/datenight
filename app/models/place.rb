@@ -9,4 +9,8 @@ class Place < ApplicationRecord
 	# Normalizes the attribute itself before validation
   phony_normalize :phone, default_country_code: 'US'
 	validates :phone, phony_plausible: true
+
+	# Generating Coords
+	geocoded_by :address
+	after_validation :geocode
 end
