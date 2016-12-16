@@ -1,38 +1,48 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="col-md-4">
+      <h1><%= @place.name %></h1>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p>
+        <strong>Address:</strong>
+        <%= @place.address %>
+      </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @place.name %>
-</p>
+      <p>
+        <strong>Description:</strong>
+        <%= @place.description %>
+      </p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @place.address %>
-</p>
+      <p>
+        <strong>Phone:</strong>
+        <%= @place.phone %>
+      </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @place.description %>
-</p>
+      <p>
+        <strong>Website:</strong>
+        <%= @place.website %>
+      </p>
+        </div>
+      </div>
+      <div id="map-canvas" style="width:100%; height:275px">
+      </div>
+    </div>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @place.phone %>
-</p>
 
-<p>
-  <strong>Website:</strong>
-  <%= @place.website %>
-</p>
-<p>
-  <strong>Coordinates:</strong>
-  <%= @place.latitude %>, <%= @place.longitude %>
-</p>
-
-<div id="map-canvas" style="width:230px; height:230px">
+  <div class="col-md-8">
+    <h1>Reviews</h1>
+    <div class="panel panel-default">
+      <div class="panel-body">
+        Christina Says
+      </div>
+      <div class="panel-footer">
+        This is a test review <br>
+        it was really good <br>
+      </div>
+    </div>
+  </div>
 </div>
-<%= link_to 'Edit', edit_place_path(@place) %> |
-<%= link_to 'Back', places_path %>
+
 
 <script type="text/javascript">
   var map;
@@ -40,7 +50,7 @@
   function initMap() {
     map = new google.maps.Map(document.getElementById('map-canvas'), {
       center: myCenter,
-      zoom: 8
+      zoom: 15
     });
     var marker = new google.maps.Marker({
       position: myCenter,
