@@ -1,0 +1,10 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <%= gravatar_tag review.user.email, size: 20 %>
+    <%= review.user.name %>
+  </div>
+  <div class="panel-footer">
+    <%= review.content %><br>
+    <%= time_ago_in_words(review.created_at) %> ago
+  </div>
+</div>

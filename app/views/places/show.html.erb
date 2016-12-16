@@ -30,15 +30,10 @@
 
 
   <div class="col-md-8">
-    <h1>Reviews</h1>
-    <div class="panel panel-default">
-      <div class="panel-body">
-        Christina Says
-      </div>
-      <div class="panel-footer">
-        This is a test review <br>
-        it was really good <br>
-      </div>
+    <h1>Write a Review!</h1>
+    <%= render 'reviews/form' %><br>
+    <h2>User Reviews</h2>
+    <%= render @reviews %>
     </div>
   </div>
 </div>
