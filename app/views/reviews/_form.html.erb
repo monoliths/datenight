@@ -4,9 +4,25 @@
   <div class="form-inputs">
     <%= f.input :content, required: true, label: false, placeholder: "Write your review here!" %>
     <%= f.hidden_field :place_id, required: true, value: @place.id %>
+    <%= f.hidden_field :score, required: true %>
+    <div class="score">
+
+    </div>
   </div>
 
-  <div class="form-actions">
+  <div class="form-actions pull-right">
     <%= f.button :submit %>
   </div>
 <% end %>
+
+<script type="text/javascript">
+  $(".score").raty({
+    starOn: "<%= image_path('star-on.png') %>",
+    starOff: "<%= image_path('star-off.png') %>",
+    // this is the id given by rails, use web console to verify
+    target: "#review_score",
+    targetKeep: true,
+    targetType: "number",
+    number: 5
+  });
+</script>

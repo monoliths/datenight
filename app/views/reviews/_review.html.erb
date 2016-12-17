@@ -5,6 +5,16 @@
   </div>
   <div class="panel-footer">
     <%= review.content %><br>
+    <div class="score_<%= review.id %>"></div><br>
     <%= time_ago_in_words(review.created_at) %> ago
   </div>
 </div>
+
+<script type="text/javascript">
+  $(".score_<%= review.id %>").raty({
+    starOn: "<%= image_path('star-on.png') %>",
+    starOff: "<%= image_path('star-off.png') %>",
+    score: <%= review.score %>,
+    readOnly:true
+  });
+</script>
