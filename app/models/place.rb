@@ -16,4 +16,11 @@ class Place < ApplicationRecord
 	# Generating Coords
 	geocoded_by :address
 	after_validation :geocode
+
+	# function an instance can call to find the average rating
+	def average_rating
+		self.reviews.sum(:score) / reviews.size
+	rescue ZeroDivisionError
+		0
+	end
 end
