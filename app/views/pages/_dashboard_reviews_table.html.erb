@@ -1,0 +1,37 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Place</th>
+      <th>When</th>
+      <th>Rating</th>
+      <th><!-- actions --></th>
+    </tr>
+    <tbody>
+      <% reviews.each do |review| %>
+        <tr>
+          <td><%= review.place.name %></td>
+          <td><%= time_ago_in_words(review.created_at) %></td>
+          <td><div class="score_<%= review.id %>">
+
+          </div></td>
+          <td>
+            <%= link_to 'edit', edit_review_path(review)%> |
+            <%= link_to 'delete', review_path(review), method: :delete %>
+          </td>
+        </tr>
+        </script>
+      <% end %>
+    </tbody>
+  </thead>
+</table>
+
+<script>
+ <% reviews.each do |review| %>
+      $(".score_<%= review.id %> ").raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      score: '<%= review.score %>',
+      readOnly: true
+    });
+  <% end %>
+</script>

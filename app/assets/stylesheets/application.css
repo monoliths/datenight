@@ -15,3 +15,6 @@
  *= require font-awesome
  *= require yeti
  */
+.gravatar {
+  border-radius: 50%;
+}

@@ -1,0 +1,17 @@
+<div class="row">
+  <!-- Profile -->
+  <div class="col-md-2">
+    <h2><%= @user.name %></h2>
+    <%= gravatar_tag @user.email, :html => { :class => "gravatar" } %>
+  </div>
+  <!-- Reviews -->
+  <div class="col-md-5">
+    <h2>My Reviews</h2>
+    <%= render 'dashboard_reviews_table', reviews: @reviews %>
+  </div>
+  <!-- Places -->
+  <div class="col-md-5">
+    <h2>My Places</h2>
+    <%= render 'dashboard_places_table', places: @places %>
+  </div>
+</div>
