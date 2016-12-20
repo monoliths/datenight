@@ -13,6 +13,7 @@ class PlacesController < ApplicationController
   # GET /places/1.json
   def show
     @review = Review.new
+    @current_user_review = current_user ? current_user.reviews.find_by(place_id: @place.id) : nil
     @reviews = @place.reviews
   end
 
@@ -29,9 +30,13 @@ class PlacesController < ApplicationController
   # POST /places.json
   def create
     @place = current_user.places.new(place_params)
+    current_user_review = current_user.reviews.find_by(place_id: @place.id)
 
     respond_to do |format|
-      if @place.save
+      if current_user_review
+        format.html { render :new, notice: 'Your review already exists.' }
+        format.json { render json: @place.errors, status: :unprocessable_entity }
+      elsif @place.save
         format.html { redirect_to @place, notice: 'Place was successfully created.' }
         format.json { render :show, status: :created, location: @place }
       else
@@ -74,5 +79,9 @@ class PlacesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def place_params
       params.require(:place).permit(:name, :address, :description, :phone, :website)
+    end
+
+    def does_review_for_current_user_exist?(place_id)
+        current_user.reviews.exists?(place_id: place_id)
     end
 end

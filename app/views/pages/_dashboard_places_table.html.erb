@@ -3,13 +3,16 @@
     <tr>
       <th>Name</th>
       <th>Created</th>
+      <th>Average Rating</th>
       <th><!-- actions --></th>
     </tr>
     <tbody>
       <% places.each do |place| %>
         <tr>
-          <td><%= place.name %></td>
+          <td><%= link_to place.name, place_path(place) %></td>
           <td><%= time_ago_in_words(place.created_at) %></td>
+          <td>  <div class="score_<%= place.id %>">
+          </div></td>
           <td>
             <%= link_to 'edit', edit_place_path(place)%> |
             <%= link_to 'delete', place_path(place), method: :delete %>
@@ -19,3 +22,14 @@
     </tbody>
   </thead>
 </table>
+
+<script>
+ <% places.each do |place| %>
+      $(".score_<%= place.id %> ").raty({
+      starOn: "<%= image_path('star-on.png') %>",
+      starOff: "<%= image_path('star-off.png') %>",
+      score: '<%= place.total_average %>',
+      readOnly: true
+    });
+  <% end %>
+</script>

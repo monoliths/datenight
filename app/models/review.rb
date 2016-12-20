@@ -11,4 +11,5 @@ class Review < ApplicationRecord
     a = self.place.average_rating
     self.place.update_attributes(total_average: a)
   end
+
 end
