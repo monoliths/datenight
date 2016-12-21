@@ -60,3 +60,11 @@ gem 'phony_rails'
 
 # convert street addresses to coords for google maps APIs
 gem 'geocoder'
+
+
+group :production do
+  gem 'rails_12factor'
+end
+
+# ruby version needed for heroku deply
+ruby '2.3.1'
